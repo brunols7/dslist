@@ -1,6 +1,7 @@
 package com.next.dslist.dto;
 
 import com.next.dslist.entities.Game;
+import com.next.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 	private Long id;
@@ -10,6 +11,14 @@ public class GameMinDTO {
 	private String shortDescription;
 	
 	public GameMinDTO() {
+	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
 	}
 
 	public GameMinDTO(Game entity) {
